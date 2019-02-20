@@ -61,7 +61,7 @@ std_precision_32s = std(matrice_precision_32s,0,2);
 
 
 %%                            16x16 FREQUENZA Simmetria e Entropia
-%% counter e accuratezza
+%% counter e accuratezza recall e precision
 for z = 1 : 5 
    %migliore simmetria e entropia
     vettore_counter_16f(z) = DB(z).database(1).dimensione(2).dominio(5).immagini(5).matrice.counter;
@@ -113,7 +113,7 @@ std_precision_32f= std(matrice_precision_32f,0,2);
 
 %grafici
 % counter
-x=1:1:4 
+x=1:1:4;
 y=[media_counter media_counter_32s media_counter_16f media_counter_32f];
 err = [std_counter std_counter_32s std_counter_16f std_counter_32f];
 scatter(x,y,'o','b','LineWidth', 2)
@@ -131,7 +131,7 @@ xticklabels({' ','16x16 spazio e_ mp','32x32 spazio e_ mp','16x16 frequenza s_ e
 xtickangle(45)
 
 %accuracy
-x=1:1:4 
+x=1:1:4 ;
 y=[media_accuracy media_accuracy_32s media_accuracy_16f media_accuracy_32f ];
 err1 = [std_accuracy std_accuracy_32s std_accuracy_16f std_accuracy_32f];
 scatter(x,y,'o','b','LineWidth', 2)
@@ -158,7 +158,7 @@ errorbar(x,media_recall,std_recall,'.r')
 grid on
 legend({'Media','deviazione standard'})
 xlim([0 12])
-title('Recall della feature entropia e media parti')
+title({'Recall della feature entropia e media parti';'16x16 spazio'})
 ylabel('Recall')
 xticks(0:1:12)
 xticklabels({' ','glasses','happy','leftlight','noglasses','normal','rightlight','sad','sleepy',...
@@ -169,11 +169,11 @@ xtickangle(45)
 x=1:1:11;
 scatter(x,media_precision,'o','b','LineWidth', 2)
 hold on
-errorbar(x,media_precision,std_precision,'o')
+errorbar(x,media_precision,std_precision,'.r')
 grid on
 legend({'Media','deviazione standard'})
 xlim([0 12])
-title('Precision della feature entropia e media parti')
+title({'Precision della feature entropia e media parti';'16x16 spazio'})
 ylabel('Precision')
 xticks(0:1:12)
 xticklabels({' ','glasses','happy','leftlight','noglasses','normal','rightlight','sad','sleepy',...
@@ -189,7 +189,7 @@ errorbar(x,media_recall_32s,std_recall_32s,'.r')
 grid on
 legend({'Media','deviazione standard'})
 xlim([0 12])
-title('Recall della feature entropia e media parti')
+title({'Recall della feature entropia e media parti';'32x32 spazio'})
 ylabel('Recall')
 xticks(0:1:12)
 xticklabels({' ','glasses','happy','leftlight','noglasses','normal','rightlight','sad','sleepy',...
@@ -204,7 +204,7 @@ errorbar(x,media_precision_32s,std_precision_32s,'.r')
 grid on
 legend({'Media','deviazione standard'})
 xlim([0 12])
-title('Precision della feature entropia e media parti')
+title({'Precision della feature entropia e media parti';'32x32 spazio'})
 ylabel('Precision')
 xticks(0:1:12)
 xticklabels({' ','glasses','happy','leftlight','noglasses','normal','rightlight','sad','sleepy',...
@@ -220,7 +220,7 @@ errorbar(x,media_recall_16f,std_recall_16f,'.r')
 grid on
 legend({'Media','deviazione standard'})
 xlim([0 12])
-title('Recall della feature simmetria e entropia')
+title({'Recall della feature simmetria e entropia';'16x16 frequenza'})
 ylabel('Recall')
 xticks(0:1:12)
 xticklabels({' ','glasses','happy','leftlight','noglasses','normal','rightlight','sad','sleepy',...
@@ -235,7 +235,7 @@ errorbar(x,media_precision_16f,std_precision_16f,'.r')
 grid on
 legend({'Media','deviazione standard'})
 xlim([0 12])
-title('Precision della feature simmetria e entropia')
+title({'Precision della feature simmetria e entropia';'16x16 frequenza'})
 ylabel('Precision')
 xticks(0:1:12)
 xticklabels({' ','glasses','happy','leftlight','noglasses','normal','rightlight','sad','sleepy',...
@@ -252,7 +252,7 @@ errorbar(x,media_recall_32f,std_recall_32f,'.r')
 grid on
 legend({'Media','deviazione standard'})
 xlim([0 12])
-title('Recall della feature simmetria e entropia')
+title({'Recall della feature simmetria e entropia';'32x32 frequenza'})
 ylabel('Recall')
 xticks(0:1:12)
 xticklabels({' ','glasses','happy','leftlight','noglasses','normal','rightlight','sad','sleepy',...
@@ -268,7 +268,7 @@ errorbar(x,media_precision_32f,std_precision_32f,'.r')
 grid on
 legend({'Media','deviazione standard'})
 xlim([0 12])
-title('Precision della feature simmetria e entropia')
+title({'Precision della feature simmetria e entropia';'32x32 frequenza'})
 ylabel('Precision')
 xticks(0:1:12)
 xticklabels({' ','glasses','happy','leftlight','noglasses','normal','rightlight','sad','sleepy',...
